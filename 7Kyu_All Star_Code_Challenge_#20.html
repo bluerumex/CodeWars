@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7Kyu</title>
+</head>
+<body>
+<script>
+    /*
+    Description:
+
+    This Kata is intended as a small challenge for my students
+
+    All Star Code Challenge #20
+
+    Create a function called addArrays() that combines two arrays of equal length,
+            summing each element of the first with the corresponding element in the second,
+            returning the "combined" summed array.
+            Raise an error if input arguments are not of equal length.
+
+    addArrays([1,2],[4,5]); // => [5,7]
+    addArrays([1,2,3],[4,5]); // => Error
+    Note:
+            Expect array input to either contain numbers or strings only
+    The function should also allow for concatenating string
+
+    addArrays(["a"],["b"]) // => ["ab"]
+
+    Solution
+    */
+
+    // solution 1
+    function addArrays(array1, array2) {
+        var resultArr = [],
+            i;
+        if (array1.length != array2.length) {
+            throw 'Error';
+        }
+
+        for (i=0; i < array1.length; i++) {
+            if (typeof array1[i] == "number" && typeof array2[i] == "number") {
+                resultArr.push(array1[i] + array2[i]);
+            } else {
+                resultArr.push(array1[i].concat(array2[i]));
+            }
+        }
+
+        return resultArr;
+    }
+
+    // solution 2
+    function addArrays2(array1, array2) {
+        if (array1.length != array2.length) {
+            throw 'Error';
+        }
+
+        return array1.map(function(e1, idx, arr) {
+            return e1 + array2[idx];
+        });
+    }
+</script>
+</body>
+</html>
