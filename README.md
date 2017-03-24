@@ -1,3 +1,4 @@
-# Kyu Solution
+# CodeWars
+Kyu Solution
 
  
