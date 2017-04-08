@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6Kyu</title>
+</head>
+<body>
+<script>
+    /*
+     The goal of this kata is to write a function that takes two inputs: a string and a character.
+     The function will count the number of times that character appears in the string.
+     The count is case insensitive.
+
+     For example:
+
+     countChar("fizzbuzz","z") => 4
+     countChar("Fancy fifth fly aloof","f") => 5
+     The character can be any alphanumeric character.
+
+     */
+
+    // solution 1
+    function countChar(string, char) {
+        var re = new RegExp(char, "i");
+        return string.length - string.split(re).join("").length;
+    }
+
+    // solution 2
+    function countCha2(string, char) {
+        return (string.match(new RegExp(char, 'ig')) || []).length
+    }
+
+    // solution 3
+    function countChar3(s, c) {
+        return s.split(new RegExp(c,"i")).length-1
+    }
+</script>
+</body>
+</html>
