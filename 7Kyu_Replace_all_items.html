@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7Kyu</title>
+</head>
+<body>
+<script>
+    /*
+    Description:
+
+     Write function replaceAll (Python: replace_all) that will replace all
+
+     occuriencies of an item with another.
+
+     Python: The function has to work for strings and lists.
+
+     Example: replaceAll [1,2,2] 1 2 -> in list [1,2,2] we replace
+
+     1 with 2 to get new list [2,2,2]
+
+     replaceAll(replaceAll(array: [1,2,2], old: 1, new: 2) // [2,2,2]
+
+    */
+
+    // solution 1
+    function replaceAll(arr, find, replace) {
+        if (arr.length != 0) {
+            return arr.map(function(c, i) {
+                return String(c) == String(find)?replace:c;
+            });
+        } else {
+            return arr;
+        }
+    }
+</script>
+</body>
+</html>
