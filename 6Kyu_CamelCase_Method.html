@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6Kyu</title>
+</head>
+<body>
+<script>
+    /*
+    Write simple .camelCase method (camel_case function in PHP, CamelCase in C# or camelCase in Java)
+    for strings. All words must have their first letter capitalized without spaces.
+
+    For instance:
+
+    "hello case".camelCase() => HelloCase
+    "camel case word".camelCase() => CamelCaseWord
+
+    */
+
+    // solution 1
+    String.prototype.camelCase = function () {
+        var _strArr = this.split(' ');
+        for (var i in _strArr) {
+            _strArr[i] = _strArr[i].charAt(0).toUpperCase() + _strArr[i].slice(1);
+        }
+        return _strArr.join('');
+    };
+
+    // solution 2
+    String.prototype.camelCase2 = function() {
+        return this.split(' ').map(function(word) {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        }).join('');
+    };
+
+    // solution 3
+    String.prototype.camelCase3 = function() {
+        return this.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
+    };
+
+    // solution 4
+    String.prototype.camelCase=function(){
+        return this.replace(/\b\w/g, x => x.toUpperCase()).replace(/\s+/g,'');
+    }
+</script>
+</body>
+</html>
