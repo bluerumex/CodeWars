@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>6Kyuz</title>
+</head>
+<body>
+<h1>console mode</h1>
+<script>
+/*
+[Break camelCase]
+Complete the solution so that the function will break up camel casing, using a space between words.
+
+Example
+solution('camelCasing') // => should return 'camel Casing'
+*/
+
+function solution(string) {
+  var str = string.split('');
+  str.map(function(val, idx) {
+    if (val.charCodeAt() >= 65 && val.charCodeAt() <= 90) {
+      str[idx - 1] += ' ';
+    }
+  });
+  return str.join('');
+}
+
+console.log(
+  `solution: ${solution('camelCasing')}`
+);
+
+function solution2(string) {
+  return(string.replace(/([A-Z])/g, ' $1'));
+}
+
+console.log(
+  `solution2: ${solution2('camelCasing')}`
+);
+
+
+/*
+[1, 3, 2] -> 3, 1, 2
+*/
+
+// 3, 1, 2
+function rankings2(arr) {
+  const sorted = [...arr].sort( (a, b) => b - a ); 
+  // [1, 3, 2] -> [3, 2, 1]
+  const ranked = [...arr].map( (item) => sorted.indexOf(item) + 1 );
+  // item -> 1, 3, 2
+  return ranked;
+};
+</script>
+</body>
+</html>
